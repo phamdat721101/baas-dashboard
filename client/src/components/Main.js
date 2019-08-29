@@ -14,6 +14,7 @@ import ChaincodeView from './View/ChaincodeView';
 import DashboardView from './View/DashboardView';
 import ChannelsView from './View/ChannelsView';
 import CustomersView from './View/CustomersView';
+import ProvidersView from './View/ProvidersView';
 import Login from './Login/Login';
 import { chartSelectors } from '../state/redux/charts';
 import { tableOperations, tableSelectors } from '../state/redux/tables';
@@ -132,6 +133,21 @@ export const Main = props => {
         cuId: 'cu1',
         username: 'cu1',
         signature: 'cu1'
+      },
+      {
+        cuId: 'cu2',
+        username: 'cu2',
+        signature: 'cu2'
+      }
+    ]
+  };
+
+  const providersViewProps = {
+    providers: [
+      {
+        proId: 'pro1',
+        username: 'pro1',
+        signature: 'pro1'
       }
     ]
   };
@@ -140,11 +156,16 @@ export const Main = props => {
     <Router>
       <div className={classes.main}>
         <Switch>
-          <Route exact path="/login" render={() => <Login />} />
+          <Route exact path="/" render={() => <Login />} />
           <Route
             exact
             path="/customers"
             render={() => <CustomersView {...customersViewProps} />}
+          />
+          <Route
+            exact
+            path="/providers"
+            render={() => <ProvidersView {...providersViewProps} />}
           />
           <Route
             exact

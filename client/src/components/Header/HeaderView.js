@@ -407,7 +407,9 @@ export class HeaderView extends Component {
       { to: '/blocks', label: 'BLOCKS' },
       { to: '/transactions', label: 'TRANSACTIONS' },
       { to: '/chaincodes', label: 'CHAINCODES' },
-      { to: '/channels', label: 'CHANNELS' }
+      { to: '/channels', label: 'CHANNELS' },
+      { to: '/customers', label: 'CUSTOMERS' },
+      { to: '/providers', label: 'PROVIDERS' }
     ];
 
     return (

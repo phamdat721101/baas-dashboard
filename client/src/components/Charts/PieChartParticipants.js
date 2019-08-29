@@ -40,8 +40,8 @@ export class PieChartParticipants extends Component {
     super(props);
     this.state = {
       data: [
-        { value: 4, name: 'Customers', fill: '#0B091A' },
-        { value: 12, name: 'Providers', fill: '#6283D0' }
+        { value: 2, name: 'Customers', fill: '#0B091A' },
+        { value: 1, name: 'Providers', fill: '#6283D0' }
       ]
     };
   }

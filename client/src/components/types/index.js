@@ -198,10 +198,8 @@ export const customersType = arrayOf(
 
 export const providersType = arrayOf(
   shape({
-    $class: string,
     proId: string,
     username: string,
-    password: string,
     signature: string
   })
 );
