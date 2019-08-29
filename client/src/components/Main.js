@@ -13,8 +13,11 @@ import TransactionsView from './View/TransactionsView';
 import ChaincodeView from './View/ChaincodeView';
 import DashboardView from './View/DashboardView';
 import ChannelsView from './View/ChannelsView';
+import CustomersView from './View/CustomersView';
+import Login from './Login/Login';
 import { chartSelectors } from '../state/redux/charts';
 import { tableOperations, tableSelectors } from '../state/redux/tables';
+
 import {
   blockListType,
   chaincodeListType,
@@ -26,7 +29,8 @@ import {
   peerStatusType,
   transactionType,
   transactionByOrgType,
-  transactionListType
+  transactionListType,
+  customersType
 } from './types';
 import PageNotFound from './View/PageNotFound';
 
@@ -47,7 +51,8 @@ const {
   transactionSelector,
   transactionListSelector,
   blockListSearchSelector,
-  transactionListSearchSelector
+  transactionListSearchSelector,
+  customerListSelector
 } = tableSelectors;
 
 const styles = theme => {
@@ -62,6 +67,7 @@ const styles = theme => {
 
 export const Main = props => {
   const {
+    customers,
     classes,
     blockList,
     blockActivity,
@@ -120,13 +126,29 @@ export const Main = props => {
     getTransactionListSearch
   };
 
+  const customersViewProps = {
+    customers: [
+      {
+        cuId: 'cu1',
+        username: 'cu1',
+        signature: 'cu1'
+      }
+    ]
+  };
+
   return (
     <Router>
       <div className={classes.main}>
         <Switch>
+          <Route exact path="/login" render={() => <Login />} />
           <Route
             exact
-            path="/"
+            path="/customers"
+            render={() => <CustomersView {...customersViewProps} />}
+          />
+          <Route
+            exact
+            path="/dashboard"
             render={() => <DashboardView {...dashboardViewProps} />}
           />
           <Route
@@ -172,7 +194,8 @@ Main.propTypes = {
   peerStatus: peerStatusType.isRequired,
   transaction: transactionType.isRequired,
   transactionByOrg: transactionByOrgType.isRequired,
-  transactionList: transactionListType.isRequired
+  transactionList: transactionListType.isRequired,
+  customers: customersType.isRequired
 };
 
 export default compose(
@@ -192,7 +215,8 @@ export default compose(
       transactionList: transactionListSelector(state),
       blockListSearch: blockListSearchSelector(state),
       transactionListSearch: transactionListSearchSelector(state),
-      blockActivity: blockActivitySelector(state)
+      blockActivity: blockActivitySelector(state),
+      customers: customerListSelector(state)
     }),
     {
       getTransaction: tableOperations.transaction,

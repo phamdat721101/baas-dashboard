@@ -13,6 +13,7 @@ const TRANSACTION_LIST = `${namespaces}/TRANSACTION_LIST`;
 const BLOCK_LIST_SEARCH = `${namespaces}/BLOCK_LIST_SEARCH`;
 const TRANSACTION_LIST_SEARCH = `${namespaces}/TRANSACTION_LIST_SEARCH`;
 const ORGS = `${namespaces}/ORGS`;
+const CUSTOMERS = `${namespaces}/CUSTOMERS`;
 
 export default {
   BLOCK_LIST,
@@ -23,5 +24,6 @@ export default {
   TRANSACTION_LIST,
   BLOCK_LIST_SEARCH,
   TRANSACTION_LIST_SEARCH,
+  CUSTOMERS,
   ORGS
 };

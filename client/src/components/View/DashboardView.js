@@ -12,6 +12,7 @@ import ChartStats from '../Charts/ChartStats';
 import PeersHealth from '../Lists/PeersHealth';
 import TimelineStream from '../Lists/TimelineStream';
 import OrgPieChart from '../Charts/OrgPieChart';
+import PieChartParticipants from '../Charts/PieChartParticipants';
 import {
   blockListType,
   dashStatsType,
@@ -259,8 +260,10 @@ export class DashboardView extends Component {
               </Card>
             </Col>
             <Col sm="6">
-              <Card className={classes.section}>
-                <ChartStats />
+              <Card className={`${classes.section} ${classes.center}`}>
+                <h5>Number of customers and providers</h5>
+                <hr />
+                <PieChartParticipants />
               </Card>
               <Card className={`${classes.section} ${classes.center}`}>
                 <h5>Transactions by Organization</h5>

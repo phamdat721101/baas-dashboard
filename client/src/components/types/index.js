@@ -187,3 +187,21 @@ export const transactionPerMinType = arrayOf(
     datetime: string
   })
 );
+
+export const customersType = arrayOf(
+  shape({
+    cuId: string,
+    username: string,
+    signature: string
+  })
+);
+
+export const providersType = arrayOf(
+  shape({
+    $class: string,
+    proId: string,
+    username: string,
+    password: string,
+    signature: string
+  })
+);

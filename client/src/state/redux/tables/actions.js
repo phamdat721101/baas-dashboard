@@ -41,6 +41,10 @@ const getTransactionListSearch = transactionList => ({
   type: types.TRANSACTION_LIST_SEARCH,
   payload: transactionList
 });
+const getCustomerList = customerList => ({
+  type: types.CUSTOMERS,
+  payload: customerList
+});
 
 export default {
   getBlockList,
@@ -50,5 +54,6 @@ export default {
   getTransaction,
   getTransactionList,
   getBlockListSearch,
+  getCustomerList,
   getTransactionListSearch
 };

@@ -127,7 +127,23 @@ const transactionListSearchReducer = (state = initialState, action) => {
   }
 };
 
+const customerListReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case types.CUSTOMERS: {
+      return {
+        rows: action.payload.rows,
+        loaded: true,
+        errors: action.error
+      };
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
 const reducer = combineReducers({
+  customerList: customerListReducer,
   blockList: blockListReducer,
   chaincodeList: chaincodeListReducer,
   channels: channelsReducer,

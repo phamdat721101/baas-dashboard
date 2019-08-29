@@ -3,6 +3,25 @@
  */
 import actions from './actions';
 import { get } from '../../../services/request';
+import axios from 'axios';
+const API_URL = 'http://localhost:3000';
+
+const url = `${API_URL}/api/Customer`;
+const customerList = () => dispatch =>
+  axios
+    .get(url)
+    .then(response => response.data)
+    .then(data => {
+      console.log(data[0]);
+      dispatch(
+        actions.getCustomerList({
+          customers: data
+        })
+      );
+    })
+    .catch(err => {
+      console.log(err);
+    });
 const blockList = channel => dispatch =>
   get(`/api/blockAndTxList/${channel}/0`)
     .then(resp => {
@@ -62,6 +81,7 @@ const channels = () => dispatch =>
       } else if (resp.status === 400) {
         dispatch(actions.getErroMessage(resp.error));
       } else {
+        console.log(actions.getChannels(resp));
         dispatch(actions.getChannels(resp));
       }
     })
@@ -142,5 +162,6 @@ export default {
   transaction,
   transactionList,
   transactionListSearch,
-  blockListSearch
+  blockListSearch,
+  customerList
 };

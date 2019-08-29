@@ -14,3 +14,4 @@ export const transactionListSearchSelector = state =>
   state.tables.transactionListSearch.rows;
 export const blockListSearchSelector = state =>
   state.tables.blockListSearch.rows;
+export const customerListSelector = state => state.tables.customerList.rows;
