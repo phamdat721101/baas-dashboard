@@ -34,7 +34,8 @@ const styles = theme => {
     }
   };
 };
-
+const numOfCustomers = [];
+const numOfProviders = [];
 export class PieChartParticipants extends Component {
   constructor(props) {
     super(props);
@@ -47,34 +48,41 @@ export class PieChartParticipants extends Component {
   }
   componentDidMount() {}
 
-  componentWillReceiveProps(nextProps) {
-    // let numOfCustomers = 0;
-    // let numOfProviders = 0;
-    // console.log(numOfCustomers)
-    // console.log(numOfProviders)
-    // this.setState({
-    //     data: [
-    //       { value: 6 , name: 'Customers', fill: '#0B091A' },
-    //       { value: 7 , name: 'Providers', fill: '#6283D0' },
-    //     ]
-    //   })
-    // this.setState({
-    //     data: [
-    //       { value: axios.get(urlCustomer).then(response => response.data)
-    //         .then((data) => {
-    //             console.log(data.length)
-    //           return 6
-    //          }).catch((err) =>{
-    //            console.log(err)
-    //          }) , name: 'Customers', fill: '#0B091A' },
-    //       { value: axios.get(urlProvider).then(response => response.data)
-    //         .then((data) => {
-    //           return 7
-    //          }).catch((err) =>{
-    //            console.log(err)
-    //          }), name: 'Providers', fill: '#6283D0' },
-    //     ]
-    //   })
+  async componentWillReceiveProps(nextProps) {
+    const API_URL = 'http://localhost:3000';
+    const urlCustomer = `${API_URL}/api/Customer`;
+    const urlProvider = `${API_URL}/api/Provider`;
+
+    await axios
+      .get(urlCustomer)
+      .then(response => response.data)
+      .then(data => {
+        console.log(data.length);
+        for (let item of data) {
+          numOfCustomers.push(item);
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    axios
+      .get(urlProvider)
+      .then(response => response.data)
+      .then(data => {
+        console.log(data.length);
+        for (let item of data) {
+          numOfProviders.push(item);
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    this.setState({
+      data: [
+        { value: numOfCustomers.length, name: 'Customers', fill: '#0B091A' },
+        { value: numOfProviders.length, name: 'Providers', fill: '#6283D0' }
+      ]
+    });
   }
 
   orgDataSetup = orgData => {
@@ -92,24 +100,6 @@ export class PieChartParticipants extends Component {
   };
 
   render() {
-    // const API_URL = 'http://localhost:3000';
-
-    // const urlCustomer = `${API_URL}/api/Customer`;
-    // const urlProvider = `${API_URL}/api/Provider`;
-    // console.log(await axios.get(urlCustomer))
-    // const numOfCustomers = axios.get(urlCustomer).then(response => response.data)
-    // .then((data) => {
-    //   console.log(data.length)
-    //   return parseInt(data.length)
-    //  }).catch((err) =>{
-    //    console.log(err)
-    //  })
-    //  const numOfProviders = axios.get(urlProvider).then(response => response.data)
-    //  .then((data) => {
-    //    return parseInt(data.length)
-    //   }).catch((err) =>{
-    //     console.log(err)
-    //   })
     const { data } = this.state;
     const { classes } = this.props;
     return (
@@ -132,9 +122,5 @@ export class PieChartParticipants extends Component {
     );
   }
 }
-
-// OrgPieChart.propTypes = {
-//   transactionByOrg: transactionByOrgType.isRequired
-// };
 
 export default withStyles(styles)(PieChartParticipants);

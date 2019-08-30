@@ -18,6 +18,7 @@ import ProvidersView from './View/ProvidersView';
 import Login from './Login/Login';
 import { chartSelectors } from '../state/redux/charts';
 import { tableOperations, tableSelectors } from '../state/redux/tables';
+import axios from 'axios';
 
 import {
   blockListType,
@@ -127,29 +128,50 @@ export const Main = props => {
     getTransactionListSearch
   };
 
-  const customersViewProps = {
-    customers: [
-      {
-        cuId: 'cu1',
-        username: 'cu1',
-        signature: 'cu1'
-      },
-      {
-        cuId: 'cu2',
-        username: 'cu2',
-        signature: 'cu2'
+  const API_URL = 'http://localhost:3000';
+  const urlCustomer = `${API_URL}/api/Customer`;
+  const urlProvider = `${API_URL}/api/Provider`;
+  const listOfCustomers = [];
+  const listOfProviders = [];
+
+  axios
+    .get(urlCustomer)
+    .then(response => response.data)
+    .then(data => {
+      for (let item of data) {
+        const itemCustomer = {};
+        itemCustomer.cuId = item.cuId;
+        itemCustomer.username = item.username;
+        itemCustomer.signature = item.signature;
+        listOfCustomers.push(itemCustomer);
       }
-    ]
+    })
+    .catch(err => {
+      console.log(err);
+    });
+
+  axios
+    .get(urlProvider)
+    .then(response => response.data)
+    .then(data => {
+      for (let item of data) {
+        const itemProvider = {};
+        itemProvider.proId = item.proId;
+        itemProvider.username = item.username;
+        itemProvider.signature = item.signature;
+        listOfProviders.push(itemProvider);
+      }
+    })
+    .catch(err => {
+      console.log(err);
+    });
+
+  const customersViewProps = {
+    customers: listOfCustomers
   };
 
   const providersViewProps = {
-    providers: [
-      {
-        proId: 'pro1',
-        username: 'pro1',
-        signature: 'pro1'
-      }
-    ]
+    providers: listOfProviders
   };
 
   return (

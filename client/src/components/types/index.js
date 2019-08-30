@@ -188,18 +188,14 @@ export const transactionPerMinType = arrayOf(
   })
 );
 
-export const customersType = arrayOf(
-  shape({
-    cuId: string,
-    username: string,
-    signature: string
-  })
-);
+export const customersType = arrayOf({
+  cuId: string,
+  username: string,
+  signature: string
+});
 
-export const providersType = arrayOf(
-  shape({
-    proId: string,
-    username: string,
-    signature: string
-  })
-);
+export const providersType = arrayOf({
+  proId: string,
+  username: string,
+  signature: string
+});
