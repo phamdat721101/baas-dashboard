@@ -83,19 +83,7 @@ export class PieChartParticipants extends Component {
     });
   }
 
-  orgDataSetup = orgData => {
-    // const temp = [];
-    // let index = 0;
-    // orgData.forEach(element => {
-    //   temp.push({
-    //     value: parseInt(element.count, 10),
-    //     name: element.creator_msp_id,
-    //     fill: colors[index]
-    //   });
-    //   index += 1;
-    // });
-    // this.setState({ data: temp });
-  };
+  orgDataSetup = orgData => {};
 
   render() {
     const { data } = this.state;
