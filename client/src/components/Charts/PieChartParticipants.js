@@ -57,7 +57,6 @@ export class PieChartParticipants extends Component {
       .get(urlCustomer)
       .then(response => response.data)
       .then(data => {
-        console.log(data.length);
         for (let item of data) {
           numOfCustomers.push(item);
         }
@@ -69,7 +68,6 @@ export class PieChartParticipants extends Component {
       .get(urlProvider)
       .then(response => response.data)
       .then(data => {
-        console.log(data.length);
         for (let item of data) {
           numOfProviders.push(item);
         }
