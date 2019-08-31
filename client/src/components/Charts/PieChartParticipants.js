@@ -65,7 +65,7 @@ export class PieChartParticipants extends Component {
       .catch(err => {
         console.log(err);
       });
-    axios
+    await axios
       .get(urlProvider)
       .then(response => response.data)
       .then(data => {
