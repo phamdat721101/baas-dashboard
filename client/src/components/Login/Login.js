@@ -14,6 +14,7 @@ import {
 } from '@material-ui/core';
 import LockIcon from '@material-ui/icons/LockOutlined';
 import axios from 'axios';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 const API_URL = 'http://localhost:3000';
 
 const styles = theme => ({
@@ -68,16 +69,6 @@ class Login extends Component {
   }
 
   componentDidMount() {
-    const url = `${API_URL}/api/Customer`;
-    axios
-      .get(url)
-      .then(response => response.data)
-      .then(data => {
-        console.log(data);
-      })
-      .catch(err => {
-        console.log(err);
-      });
     console.log('componentDidMount called');
   }
 
@@ -174,9 +165,7 @@ class Login extends Component {
                 control={<Checkbox value="rememberMe" color="primary" />}
                 label="Remember Me"
               />
-
               <Button
-                type="submit"
                 fullWidth
                 variant="contained"
                 color="primary"

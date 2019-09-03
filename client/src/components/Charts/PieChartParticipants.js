@@ -46,9 +46,7 @@ export class PieChartParticipants extends Component {
       ]
     };
   }
-  componentDidMount() {}
-
-  async componentWillReceiveProps(nextProps) {
+  async componentDidMount() {
     const API_URL = 'http://localhost:3000';
     const urlCustomer = `${API_URL}/api/Customer`;
     const urlProvider = `${API_URL}/api/Provider`;
@@ -82,6 +80,8 @@ export class PieChartParticipants extends Component {
       ]
     });
   }
+
+  async componentWillReceiveProps(nextProps) {}
 
   orgDataSetup = orgData => {};
 

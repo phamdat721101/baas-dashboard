@@ -9,6 +9,7 @@ import { withStyles } from '@material-ui/core/styles';
 import classnames from 'classnames';
 import Main from '../Main';
 import Header from '../Header';
+import Login from '../Login/Login.js';
 import Footer from '../Footer';
 import LandingPage from '../View/LandingPage';
 import ErrorMesage from '../ErrorMesage';
@@ -58,10 +59,11 @@ export class App extends Component {
     const className = classnames(mode === 'dark' && 'dark-theme', classes.app);
     return (
       <div className={className}>
-        <Header refresh={this.refreshComponent} />
+        {/* <Header refresh={this.refreshComponent} />
         {error && <ErrorMesage message={error} />}
         <Main />
-        <Footer />
+        <Footer /> */}
+        <Main />
       </div>
     );
   }

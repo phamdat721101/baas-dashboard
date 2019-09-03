@@ -4,6 +4,8 @@
 
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import Header from '../Header';
+import Footer from '../Footer';
 import { Row, Col } from 'reactstrap';
 import FontAwesome from 'react-fontawesome';
 import Card from '@material-ui/core/Card';
@@ -182,6 +184,7 @@ export class DashboardView extends Component {
     const { classes } = this.props;
     return (
       <div className={classes.background}>
+        <Header />
         <div className={classes.view}>
           <Row>
             <Col sm="12">
@@ -273,6 +276,7 @@ export class DashboardView extends Component {
             </Col>
           </Row>
         </div>
+        <Footer />
       </div>
     );
   }

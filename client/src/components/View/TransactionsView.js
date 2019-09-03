@@ -4,6 +4,8 @@
 
 import React from 'react';
 import View from '../Styled/View';
+import Header from '../Header';
+import Footer from '../Footer';
 import Transactions from '../Lists/Transactions';
 import {
   currentChannelType,
@@ -26,6 +28,7 @@ export const TransactionsView = ({
   transactionListSearch
 }) => (
   <View>
+    <Header />
     <Transactions
       currentChannel={currentChannel}
       transactionList={transactionList}
@@ -37,6 +40,7 @@ export const TransactionsView = ({
       getTransactionListSearch={getTransactionListSearch}
       transactionListSearch={transactionListSearch}
     />
+    <Footer />
   </View>
 );
 

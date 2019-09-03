@@ -4,6 +4,8 @@
 
 import React from 'react';
 import View from '../Styled/View';
+import Header from '../Header';
+import Footer from '../Footer';
 import Blocks from '../Lists/Blocks';
 import {
   blockListType,
@@ -22,6 +24,7 @@ export const BlocksView = ({
   transactionByOrg
 }) => (
   <View>
+    <Header />
     <Blocks
       blockList={blockList}
       currentChannel={currentChannel}
@@ -31,6 +34,7 @@ export const BlocksView = ({
       blockListSearch={blockListSearch}
       getBlockListSearch={getBlockListSearch}
     />
+    <Footer />
   </View>
 );
 
