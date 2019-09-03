@@ -34,8 +34,7 @@ const styles = theme => {
     }
   };
 };
-const numOfCustomers = [];
-const numOfProviders = [];
+
 export class PieChartParticipants extends Component {
   constructor(props) {
     super(props);
@@ -47,10 +46,11 @@ export class PieChartParticipants extends Component {
     };
   }
   async componentDidMount() {
-    const API_URL = 'http://localhost:3000';
+    const API_URL = 'http://103.48.80.41:3000';
     const urlCustomer = `${API_URL}/api/Customer`;
     const urlProvider = `${API_URL}/api/Provider`;
-
+    const numOfCustomers = [];
+    const numOfProviders = [];
     await axios
       .get(urlCustomer)
       .then(response => response.data)
@@ -81,7 +81,7 @@ export class PieChartParticipants extends Component {
     });
   }
 
-  async componentWillReceiveProps(nextProps) {}
+  // async componentWillReceiveProps(nextProps) {}
 
   orgDataSetup = orgData => {};
 

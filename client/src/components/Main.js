@@ -128,7 +128,7 @@ export const Main = props => {
     getTransactionListSearch
   };
 
-  const API_URL = 'http://localhost:3000';
+  const API_URL = 'http://103.48.80.41:3000';
   const urlCustomer = `${API_URL}/api/Customer`;
   const urlProvider = `${API_URL}/api/Provider`;
   const listOfCustomers = [];
