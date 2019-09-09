@@ -15,6 +15,7 @@ import PeersHealth from '../Lists/PeersHealth';
 import TimelineStream from '../Lists/TimelineStream';
 import OrgPieChart from '../Charts/OrgPieChart';
 import PieChartParticipants from '../Charts/PieChartParticipants';
+import axios from 'axios';
 import {
   blockListType,
   dashStatsType,
@@ -103,7 +104,8 @@ export class DashboardView extends Component {
     super(props);
     this.state = {
       notifications: [],
-      hasDbError: false
+      hasDbError: false,
+      contracts: 0
     };
   }
 
@@ -126,14 +128,36 @@ export class DashboardView extends Component {
     }
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     const { blockActivity } = this.props;
     this.setNotifications(blockActivity);
+    await this.getData();
+    setInterval(this.getData, 3000);
   }
+
+  getData = async () => {
+    const API_URL = 'http://103.48.80.41:3000';
+    const url = `${API_URL}/api/contract`;
+    const numOfContracts = [];
+    await axios
+      .get(url)
+      .then(response => response.data)
+      .then(data => {
+        for (let item of data) {
+          numOfContracts.push(item);
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    this.setState({
+      contracts: numOfContracts.length
+    });
+  };
 
   componentWillReceiveProps() {
     const { blockActivity } = this.props;
-    this.setNotifications(blockActivity);
+    setInterval(this.setNotifications(blockActivity), 1000);
   }
 
   setNotifications = blockList => {
@@ -163,7 +187,7 @@ export class DashboardView extends Component {
       blockActivity,
       transactionByOrg
     } = this.props;
-    const { hasDbError, notifications } = this.state;
+    const { hasDbError, notifications, contracts } = this.state;
     if (hasDbError) {
       return (
         <div
@@ -212,7 +236,7 @@ export class DashboardView extends Component {
                       </Avatar>
                     </Col>
                     <Col sm="4">
-                      <h1 className={classes.count}>{dashStats.txCount}</h1>
+                      <h1 className={classes.count}>{contracts}</h1>
                     </Col>
                   </Row>
                   TRANSACTIONS

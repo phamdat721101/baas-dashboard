@@ -301,20 +301,21 @@ export class HeaderView extends Component {
   };
 
   handleDrawOpen = drawer => {
-    switch (drawer) {
-      case 'notifyDrawer': {
-        this.setState({ notifyDrawer: true });
-        this.setState({ notifyCount: 0 });
-        break;
-      }
-      case 'adminDrawer': {
-        this.setState({ adminDrawer: true });
-        break;
-      }
-      default: {
-        break;
-      }
-    }
+    window.location.href = 'http://103.48.80.41:4200/';
+    // switch (drawer) {
+    //   case 'notifyDrawer': {
+    //     this.setState({ notifyDrawer: true });
+    //     this.setState({ notifyCount: 0 });
+    //     break;
+    //   }
+    //   case 'adminDrawer': {
+    //     this.setState({ adminDrawer: true });
+    //     break;
+    //   }
+    //   default: {
+    //     break;
+    //   }
+    // }
   };
 
   handleDrawClose = drawer => {
@@ -407,9 +408,7 @@ export class HeaderView extends Component {
       { to: '/blocks', label: 'BLOCKS' },
       { to: '/transactions', label: 'TRANSACTIONS' },
       { to: '/chaincodes', label: 'CHAINCODES' },
-      { to: '/channels', label: 'CHANNELS' },
-      { to: '/customers', label: 'CUSTOMERS' },
-      { to: '/providers', label: 'PROVIDERS' }
+      { to: '/channels', label: 'CHANNELS' }
     ];
 
     return (
