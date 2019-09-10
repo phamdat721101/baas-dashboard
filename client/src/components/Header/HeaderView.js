@@ -301,7 +301,7 @@ export class HeaderView extends Component {
   };
 
   handleDrawOpen = drawer => {
-    window.location.href = 'http://103.48.80.41:4200/';
+    window.location.href = 'http://103.48.80.41:8080/';
     // switch (drawer) {
     //   case 'notifyDrawer': {
     //     this.setState({ notifyDrawer: true });
