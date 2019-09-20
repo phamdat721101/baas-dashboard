@@ -178,7 +178,6 @@ export const Main = props => {
     <Router>
       <div className={classes.main}>
         <Switch>
-          <Route exact path="/" render={() => <Login />} />
           <Route
             exact
             path="/customers"
@@ -191,7 +190,7 @@ export const Main = props => {
           />
           <Route
             exact
-            path="/dashboard"
+            path="/"
             render={() => <DashboardView {...dashboardViewProps} />}
           />
           <Route

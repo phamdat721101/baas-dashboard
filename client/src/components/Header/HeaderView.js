@@ -403,7 +403,7 @@ export class HeaderView extends Component {
     } = this.state;
 
     const links = [
-      { to: '/dashboard', label: 'DASHBOARD', exact: true },
+      { to: '/', label: 'DASHBOARD', exact: true },
       { to: '/network', label: 'NETWORK' },
       { to: '/blocks', label: 'BLOCKS' },
       { to: '/transactions', label: 'TRANSACTIONS' },
