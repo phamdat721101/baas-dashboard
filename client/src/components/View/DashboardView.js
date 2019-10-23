@@ -280,10 +280,7 @@ export class DashboardView extends Component {
                 <PeersHealth peerStatus={peerStatus} />
               </Card>
               <Card className={classes.section}>
-                <TimelineStream
-                  notifications={notifications}
-                  blockList={blockActivity}
-                />
+                <ChartStats />
               </Card>
             </Col>
             <Col sm="6">
