@@ -11,6 +11,7 @@ import FontAwesome from 'react-fontawesome';
 import Card from '@material-ui/core/Card';
 import Avatar from '@material-ui/core/Avatar';
 import ChartStats from '../Charts/ChartStats';
+import ContractChart from '../Charts/ContractChart';
 import PeersHealth from '../Lists/PeersHealth';
 import TimelineStream from '../Lists/TimelineStream';
 import OrgPieChart from '../Charts/OrgPieChart';
@@ -279,20 +280,20 @@ export class DashboardView extends Component {
               <Card className={classes.section}>
                 <PeersHealth peerStatus={peerStatus} />
               </Card>
-              <Card className={classes.section}>
-                <ChartStats />
+              <Card className={`${classes.section} ${classes.center}`}>
+                <h5>Number of contracts</h5>
+                <hr />
+                <ContractChart />
               </Card>
             </Col>
             <Col sm="6">
+              <Card className={classes.section}>
+                <ChartStats />
+              </Card>
               <Card className={`${classes.section} ${classes.center}`}>
                 <h5>Number of customers and providers</h5>
                 <hr />
                 <PieChartParticipants />
-              </Card>
-              <Card className={`${classes.section} ${classes.center}`}>
-                <h5>Transactions by Organization</h5>
-                <hr />
-                <OrgPieChart transactionByOrg={transactionByOrg} />
               </Card>
             </Col>
           </Row>
