@@ -405,6 +405,7 @@ export class HeaderView extends Component {
     const links = [
       { to: '/', label: 'DASHBOARD', exact: true },
       { to: '/network', label: 'NETWORK' },
+      { to: '/customers', label: 'CUSTOMER' },
       { to: '/blocks', label: 'BLOCKS' },
       { to: '/transactions', label: 'TRANSACTIONS' },
       { to: '/chaincodes', label: 'CHAINCODES' },
