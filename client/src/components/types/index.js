@@ -190,12 +190,12 @@ export const transactionPerMinType = arrayOf(
 
 export const customersType = arrayOf({
   cuId: string,
-  username: string,
-  signature: string
+  username: string
 });
 
 export const providersType = arrayOf({
   proId: string,
   username: string,
-  signature: string
+  ratingProvider: number,
+  services: arrayOf(string)
 });

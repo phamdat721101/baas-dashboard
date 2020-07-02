@@ -157,6 +157,7 @@ export const Main = props => {
         const itemProvider = {};
         itemProvider.proId = item.proId;
         itemProvider.username = item.username;
+        itemProvider.ratingProvider = item.ratingProvider;
         itemProvider.services = item.listServiceStat.serviceId;
         listOfProviders.push(itemProvider);
       }

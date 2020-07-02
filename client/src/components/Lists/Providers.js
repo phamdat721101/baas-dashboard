@@ -35,6 +35,18 @@ class Providers extends Component {
       filterAll: true
     },
     {
+      Header: 'Rating',
+      accessor: 'ratingProvider',
+      filterMethod: (filter, rows) =>
+        matchSorter(
+          rows,
+          filter.value,
+          { keys: ['ratingProvider'] },
+          { threshold: matchSorter.rankings.SIMPLEMATCH }
+        ),
+      filterAll: true
+    },
+    {
       Header: 'Services',
       accessor: 'services',
       filterMethod: (filter, rows) =>
