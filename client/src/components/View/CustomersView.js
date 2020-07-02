@@ -9,7 +9,6 @@ import Footer from '../Footer';
 import Customers from '../Lists/Customers';
 import { customersType } from '../types';
 
-console.log(Customers);
 export const CustomersView = ({ customers }) => (
   <View>
     <Header />

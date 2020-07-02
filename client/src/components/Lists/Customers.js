@@ -33,19 +33,6 @@ class Customers extends Component {
           { threshold: matchSorter.rankings.SIMPLEMATCH }
         ),
       filterAll: true
-    },
-    {
-      Header: 'Signature',
-      accessor: 'signature',
-      filterMethod: (filter, rows) =>
-        matchSorter(
-          rows,
-          filter.value,
-          { keys: ['signature'] },
-          { threshold: matchSorter.rankings.SIMPLEMATCH }
-        ),
-      filterAll: true,
-      width: 125
     }
   ];
 

@@ -4,7 +4,7 @@
 import actions from './actions';
 import { get } from '../../../services/request';
 import axios from 'axios';
-const API_URL = 'http://localhost:3000';
+const API_URL = 'http://103.48.80.41:3000';
 
 const url = `${API_URL}/api/Customer`;
 const customerList = () => dispatch =>
