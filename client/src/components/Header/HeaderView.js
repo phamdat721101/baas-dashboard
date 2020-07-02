@@ -126,7 +126,7 @@ const styles = theme => {
         marginLeft: 0
       }
     },
-    bell: {
+    signout: {
       color: dark ? 'rgb(139, 143, 148)' : '#5f6164',
       fontSize: '18pt',
       margin: 8,
@@ -301,7 +301,7 @@ export class HeaderView extends Component {
   };
 
   handleDrawOpen = drawer => {
-    window.location.href = 'http://103.48.80.41:8080/';
+    window.location.href = 'http://103.48.80.41:4200/';
     // switch (drawer) {
     //   case 'notifyDrawer': {
     //     this.setState({ notifyDrawer: true });
@@ -405,8 +405,8 @@ export class HeaderView extends Component {
     const links = [
       { to: '/', label: 'DASHBOARD', exact: true },
       { to: '/network', label: 'NETWORK' },
-      { to: '/customers', label: 'CUSTOMER' },
-      { to: '/providers', label: 'PROVIDER' },
+      { to: '/customers', label: 'CUSTOMERS' },
+      { to: '/providers', label: 'PROVIDERS' },
       { to: '/blocks', label: 'BLOCKS' },
       { to: '/transactions', label: 'TRANSACTIONS' },
       { to: '/chaincodes', label: 'CHAINCODES' },
@@ -470,13 +470,9 @@ export class HeaderView extends Component {
                   </div>
                   {
                     <div className={classes.adminButton}>
-                      <FontAwesome
-                        name="bell"
-                        data-command="bell"
-                        className={classes.bell}
-                        onClick={() => this.handleDrawOpen('notifyDrawer')}
-                      />
-                      <Badge badgeContent={notifyCount} color="primary" />
+                      <button onClick={() => this.handleDrawOpen()}>
+                        Log out
+                      </button>
                     </div>
                   }
                   {/*
