@@ -142,7 +142,6 @@ export const Main = props => {
         const itemCustomer = {};
         itemCustomer.cuId = item.cuId;
         itemCustomer.username = item.username;
-        itemCustomer.signature = item.signature;
         listOfCustomers.push(itemCustomer);
       }
     })
@@ -158,7 +157,7 @@ export const Main = props => {
         const itemProvider = {};
         itemProvider.proId = item.proId;
         itemProvider.username = item.username;
-        itemProvider.signature = item.signature;
+        itemProvider.services = item.listServiceStat.serviceId;
         listOfProviders.push(itemProvider);
       }
     })

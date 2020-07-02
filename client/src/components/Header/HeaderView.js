@@ -406,6 +406,7 @@ export class HeaderView extends Component {
       { to: '/', label: 'DASHBOARD', exact: true },
       { to: '/network', label: 'NETWORK' },
       { to: '/customers', label: 'CUSTOMER' },
+      { to: '/providers', label: 'PROVIDER' },
       { to: '/blocks', label: 'BLOCKS' },
       { to: '/transactions', label: 'TRANSACTIONS' },
       { to: '/chaincodes', label: 'CHAINCODES' },
