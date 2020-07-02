@@ -488,16 +488,6 @@ export class HeaderView extends Component {
                   onClick={() => this.handleDrawOpen('adminDrawer')}
                 />
               </div> */}
-                  <div
-                    className={`${classes.adminButton} ${classes.themeSwitch}`}
-                  >
-                    <FontAwesome name="sun-o" className={classes.sunIcon} />
-                    <Switch
-                      onChange={() => this.handleThemeChange(mode)}
-                      checked={dark}
-                    />
-                    <FontAwesome name="moon-o" className={classes.moonIcon} />
-                  </div>
                 </Nav>
               </Collapse>
             </Navbar>
