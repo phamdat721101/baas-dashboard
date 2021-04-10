@@ -225,7 +225,7 @@ export class DashboardView extends Component {
                       <h1 className={classes.count}>{dashStats.latestBlock}</h1>
                     </Col>
                   </Row>
-                  BLOCKS
+                  TRANSACTIONS
                 </div>
                 <div className={`${classes.statistic} ${classes.vdivide}`}>
                   <Row>
@@ -240,7 +240,7 @@ export class DashboardView extends Component {
                       <h1 className={classes.count}>{contracts}</h1>
                     </Col>
                   </Row>
-                  TRANSACTIONS
+                  CONTRACTS
                 </div>
                 <div className={`${classes.statistic} ${classes.vdivide}`}>
                   <Row>
@@ -255,23 +255,7 @@ export class DashboardView extends Component {
                   </Row>
                   NODES
                 </div>
-                <div className={classes.statistic}>
-                  <Row>
-                    <Col sm="4">
-                      <Avatar
-                        className={`${classes.avatar} ${classes.chaincode}`}
-                      >
-                        <FontAwesome name="handshake-o" />
-                      </Avatar>
-                    </Col>
-                    <Col sm="4">
-                      <h1 className={classes.count}>
-                        {dashStats.chaincodeCount}
-                      </h1>
-                    </Col>
-                  </Row>
-                  CHAINCODES
-                </div>
+                 
               </Card>
             </Col>
           </Row>
@@ -280,10 +264,11 @@ export class DashboardView extends Component {
               <Card className={classes.section}>
                 <PeersHealth peerStatus={peerStatus} />
               </Card>
-              <Card className={`${classes.section} ${classes.center}`}>
-                <h5>Number of contracts</h5>
-                <hr />
-                <ContractChart />
+	      <Card className={classes.section}>
+                <TimelineStream
+                  notifications={notifications}
+                  blockList={blockActivity}
+                />
               </Card>
             </Col>
             <Col sm="6">
